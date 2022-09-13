@@ -1,11 +1,11 @@
 import React from "react";
 
-const ShowList = ({tareas}) => {
+const ShowList = ({tareas, onDoubleClick}) => {
   return (
     <ul>
         {tareas.map((item, index) => {
           return (
-            <li className={item.prioridad} key={index}>
+            <li onDoubleClick={() => onDoubleClick(index)} className={item.prioridad} key={index}>
               {item.tarea}
             </li>
           );

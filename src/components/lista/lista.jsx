@@ -8,7 +8,7 @@ import ShowList from "./showList/showList";
 const BoxLista = () => {
   const [tareas, setTareas] = useState([]);
   const agregarTarea = (valueInput,valuePrioridad) => {
-    if (valuePrioridad === ""){
+    if (valuePrioridad === "" || valueInput === ""){
         console.log("seleccione una prioridad")
         return 
     } 
@@ -16,6 +16,13 @@ const BoxLista = () => {
     setTareas([...tareas, nuevaTarea]);
     console.log(tareas);
   };
+  const EliminarTarea = (i) => {
+    const nuevaTareas = tareas.filter((t, index) => i !== index);
+    setTareas(nuevaTareas)
+    console.log(EliminarTarea)
+};
+
+
 
   return (
     <main>
@@ -38,6 +45,7 @@ const BoxLista = () => {
 
       <ShowList
       tareas={tareas}
+      onDoubleClick ={EliminarTarea}
       > </ShowList>
     </main>
   );
